@@ -1,0 +1,38 @@
+<!-- insulina_list.html -->
+{% extends 'menu.html' %}
+
+{% block content %}
+  <main class="container mt-5">
+    <h1 class="text-center">Lista de Registros de Insulina</h1>
+    
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Horário</th>
+          <th>Refeição</th>
+          <th>Tipo de Insulina</th>
+          <th>Antes/Depois Refeição</th>
+          <th>Quantidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for insulina in insulina_list %}
+          <tr>
+            <td>{{ insulina.data }}</td>
+            <td>{{ insulina.horario }}</td>
+            <td>{{ insulina.refeicao }}</td>
+            <td>{{ insulina.tipo_insulina }}</td>
+            <td>{{ insulina.antes_depois_refeicao }}</td>
+            <td>{{ insulina.quantidade }}</td>
+            <td>
+              <a href="{% url 'editar_insulina' insulina.id %}">Editar</a> |
+              <a href="{% url 'excluir_insulina' insulina.id %}">Excluir</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+{% endblock %}

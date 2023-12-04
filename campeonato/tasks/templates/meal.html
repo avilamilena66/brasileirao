@@ -1,0 +1,42 @@
+{% extends 'menu.html' %}
+
+{% block content %}
+  <main class="container mt-5">
+    <!-- Adiciona espaço acima do formulário -->
+    <div class="row">
+      <div class="col-md-5 offset-md-3">
+        <form method="POST" action="{% url 'meal' %}" class="card card-body">
+          {% csrf_token %}
+
+          <h1 class="text-center">Cadastro Refeição</h1>
+          <br />
+
+          <label for="data" class="form-label">Data:</label>
+          <input type="date" class="form-control" name="data" id="data" />
+          <br />
+
+          <label for="time" class="form-label">Horário:</label>
+          <input type="time" class="form-control" name="horario" id="horario" />
+          <br />
+
+          <label for="refeicao" class="form-label">Refeição:</label>
+          <select class="form-select" name="refeicao" aria-label="Default select example">
+            <option selected>Café da manhã</option>
+            <option>Almoço</option>
+            <option>Café da tarde</option>
+            <option>Jantar</option>
+          </select>
+
+          <label for="quantidade" class="form-label">Quantidade:</label>
+          <input type="number" class="form-control" name="quantidade" id="quantidade" />
+          <br />
+
+          <div class="col-md-11 text-center">
+            <button type="button" name="cancel" class="btn btn-danger" onclick="window.location.href='{% url 'userpage' %}'">Cancelar</button>
+            <button type="submit" name="submit" class="btn btn-primary">Confirmar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}

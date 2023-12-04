@@ -1,0 +1,36 @@
+<!-- insulina_list.html -->
+{% extends 'menu.html' %}
+
+{% block content %}
+  <main class="container mt-5">
+    <h1 class="text-center">Lista de Registros de Índice Glicêmico</h1>
+    
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Horário</th>
+          <th>Refeição</th>
+          <th>Índice Glicêmico</th>
+          <th>Antes/Depois Refeição</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for glicose in glicose_list %}
+          <tr>
+            <td>{{ glicose.data }}</td>
+            <td>{{ glicose.horario }}</td>
+            <td>{{ glicose.refeicao }}</td>
+            <td>{{ glicose.sugar_level }}</td>
+            <td>{{ glicose.antes_depois_refeicao }}</td>
+            <td>
+              <a href="{% url 'editar_glicose' glicose.id %}">Editar</a> |
+              <a href="{% url 'excluir_glicose' glicose.id %}">Excluir</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+{% endblock %}

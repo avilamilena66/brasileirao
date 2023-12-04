@@ -1,0 +1,36 @@
+<!-- atividade_fisica_list.html -->
+{% extends 'menu.html' %}
+
+{% block content %}
+  <main class="container mt-5">
+    <h1 class="text-center">Lista de Registros de Atividades Físicas</h1>
+    
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Horário</th>
+          <th>Tipo de Atividade</th>
+          <th>Duração</th>
+          <th>Intensidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for atividade in atividade_fisica_list %}
+          <tr>
+            <td>{{ atividade.data }}</td>
+            <td>{{ atividade.horario }}</td>
+            <td>{{ atividade.tipo_atividade }}</td>
+            <td>{{ atividade.duracao }}</td>
+            <td>{{ atividade.intensidade }}</td>
+            <td>
+              <a href="{% url 'editar_atividade' atividade.id %}">Editar</a> |
+              <a href="{% url 'excluir_atividade' atividade.id %}">Excluir</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+{% endblock %}

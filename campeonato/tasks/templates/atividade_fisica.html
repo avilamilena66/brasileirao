@@ -1,0 +1,47 @@
+{% extends 'menu.html' %}
+
+{% block content %}
+  <main class="container mt-5">
+    <!-- Adiciona espaço acima do formulário -->
+    <div class="row">
+      <div class="col-md-5 offset-md-3">
+        <form method="POST" action="{% url 'atividade_fisica' %}" class="card card-body">
+          {% csrf_token %}
+
+          <h1 class="text-center">Registrar Atividade Física</h1>
+          <br />
+
+          <label for="data" class="form-label">Data:</label>
+          <input type="date" class="form-control" name="data" id="data" />
+          <br />
+
+          <label for="hora" class="form-label">Horário:</label>
+          <input type="time" class="form-control" name="horario" id="horario" />
+          <br />
+
+          <label for="tipo_atividade" class="form-label">Tipo de Atividade:</label>
+          <input type="text" class="form-control" name="tipo_atividade" id="tipo_atividade" />
+          <br />
+
+          <label for="duracao" class="form-label">Duração (em minutos):</label>
+          <input type="number" class="form-control" name="duracao" id="duracao" />
+          <br />
+
+          <label for="intensidade" class="form-label">Intensidade:</label>
+          <select class="form-select" name="intensidade" aria-label="Default select example">
+            <option selected>Leve</option>
+            <option>Moderada</option>
+            <option>Intensa</option>
+          </select>
+
+          <br />
+
+          <div class="col-md-11 text-center">
+            <button type="button" name="cancel" class="btn btn-danger" onclick="window.location.href='{% url 'userpage' %}'">Cancelar</button>
+            <button type="submit" name="submit" class="btn btn-primary">Confirmar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}

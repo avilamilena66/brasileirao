@@ -1,0 +1,79 @@
+{% extends 'menu.html' %}
+{% load static %}
+
+{% block content %}
+  <main class="container py-5">
+    <div class="jumbotron">
+      <h1 class="display-4">Aplicação Campeonato Brasileiro</h1>
+      <p class="lead">Aplicação criada por alunos de Ciência da Computação da UFSJ com o intuito de acompanhar os jogos do Campeonato do Brasileirão</p>
+      <hr class="my-4" />
+      <p>Para mais informações sobre o futebol brasileiro, acesse o site da CBF.</p>
+      <a class="btn btn-primary btn-lg" href="https://www.cbf.com.br/" target="_blank" role="button">Leia mais</a>
+    </div>
+    <br />
+
+    <div class="row">
+      <!-- Adicionando os botões -->
+      <div class="col-sm-12 col-md-3">
+        <div class="card text-center" style="width: 100%;">
+          <img src="{% static 'images/insulina.png' %}" class="card-img-top" alt="Imagem Insulina" style="width: 70px; height: 70px;">
+          <div class="card-body">
+            <h5 class="card-title">Insulina</h5>
+            <a href="{% url 'insulina' %}" class="btn btn-primary">Ir para Insulina</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-3">
+        <div class="card text-center" style="width: 100%;">
+          <img src="{% static 'images/teste-de-diabetes.png' %}" class="card-img-top" alt="Imagem Índice Glicêmico" style="width: 70px; height: 70px;">
+          <div class="card-body">
+            <h5 class="card-title">Índice Glicêmico</h5>
+            <a href="{% url 'glicose' %}" class="btn btn-primary">Ir para Índice Glicêmico</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-3">
+        <div class="card text-center" style="width: 100%;">
+          <img src="{% static 'images/arroz-frito.png' %}" class="card-img-top" alt="Imagem Refeição" style="width: 70px; height: 70px;">
+          <div class="card-body">
+            <h5 class="card-title">Refeição</h5>
+            <a href="{% url 'meal' %}" class="btn btn-primary">Ir para Refeição</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-3">
+        <div class="card text-center" style="width: 100%;">
+          <img src="{% static 'images\atividade_fisica.png' %}" class="card-img-top" alt="Imagem Atividade Física" style="width: 70px; height: 70px;">
+          <div class="card-body">
+            <h5 class="card-title">Atividade Física</h5>
+            <a href="{% url 'atividade_fisica' %}" class="btn btn-primary">Ir para Atividade Física</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-3">
+        <div class="card text-center" style="width: 100%;">
+          <img src="{% static 'images/medicacao.png' %}" class="card-img-top" alt="Imagem Medicação" style="width: 70px; height: 70px;">
+          <div class="card-body">
+            <h5 class="card-title">Medicação</h5>
+            <a class="btn btn-primary">Ir para Medicação</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-sm-12 col-md-3">
+        <div class="card text-center" style="width: 100%;">
+          <img src="{% static 'images/historia.png' %}" class="card-img-top" alt="Imagem Histórico" style="width: 70px; height: 70px;">
+          <div class="card-body">
+            <h5 class="card-title">Histórico</h5>
+            <a href="{% url 'historico' %}" class="btn btn-primary">Ir para Histórico</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+{% endblock %}

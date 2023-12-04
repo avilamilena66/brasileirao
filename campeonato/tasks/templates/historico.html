@@ -1,0 +1,27 @@
+{% extends 'menu.html' %}
+
+{% block content %}
+  <main class="container mt-5">
+    <!-- Adiciona espaço acima do formulário -->
+    <div class="row">
+      <div class="col-md-5 offset-md-3">
+        <form method="POST" class="card card-body">
+          {{ error }}
+
+          {% csrf_token %}
+
+          <h1 class="text-center">Histórico Completo</h1>
+          <br />
+          <button class="btn btn-primary" type="submit" name="insulina_list">Histórico Insulina</button>
+          <br />
+          <button class="btn btn-primary" type="submit" name="glicose_list">Histórico Índice Glicêmico</button>
+          <br />
+          <button class="btn btn-primary" type="submit" name="meal_list">Histórico Refeição</button>
+          <br />
+          <button class="btn btn-primary" type="submit" name="atividade_fisica_list">Histórico Atividade Física</button>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+

@@ -1,0 +1,59 @@
+{% extends 'menu.html' %}
+
+{% block content %}
+  <main class="container mt-5">
+    <!-- Adiciona espaço acima do formulário -->
+    <div class="row">
+      <div class="col-md-5 offset-md-3">
+        <form method="POST" class="card card-body">
+          {{ error }}
+
+          {% csrf_token %}
+
+          <h1 class="text-center">Registar Índice Glicêmico</h1>
+
+          <div class="mb-3">
+            <label for="sugar_level" class="form-label">Índice Glicêmico</label>
+            <input type="number" class="form-control" name="sugar_level" id="sugar_level" />
+          </div>
+
+          <div class="mb-3">
+            <label for="data" class="form-label">Data</label>
+            <input type="date" class="form-control" name="data" id="data" />
+          </div>
+
+          <div class="mb-3">
+            <label for="horario" class="form-label">Horário</label>
+            <input type="time" class="form-control" name="horario" id="horario" />
+          </div>
+
+          <br />
+
+          <label for="refeicao" class="form-label">Refeição:</label>
+          <select class="form-select" name="refeicao" aria-label="Default select example">
+            <option selected>Café da manhã</option>
+            <option>Almoço</option>
+            <option>Café da tarde</option>
+            <option>Jantar</option>
+          </select>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="antes_depois_refeicao" id="antes_depois_refeicao1" value="antes" checked />
+            <label class="form-check-label" for="antes_depois_refeicao1">Pré Refeição</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="antes_depois_refeicao" id="antes_depois_refeicao2" value="depois" />
+            <label class="form-check-label" for="antes_depois_refeicao2">Pós refeição</label>
+          </div>
+
+          <div class="mb-3"></div>
+          <div class="col-md-11 text-center">
+            <button type="button" name="cancel" class="btn btn-danger" onclick="window.location.href='{% url 'userpage' %}'">Cancelar</button>
+            <button type="submit" name="submit" class="btn btn-primary">Confirmar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}

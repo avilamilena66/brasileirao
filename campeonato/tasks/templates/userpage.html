@@ -1,0 +1,31 @@
+{% extends 'menu.html' %}
+
+{% block content %}
+  <main class="container mt-5">
+    <!-- Adiciona espaço acima do formulário -->
+    <div class="row">
+      <div class="col-md-5 offset-md-3">
+        <form method="POST" class="card card-body">
+          {{ error }}
+
+          {% csrf_token %}
+
+          <h1 class="text-center">Menu de Usuário</h1>
+          <br />
+          <button class="btn btn-primary" type="submit" value="profile" name="profile">Meu Perfil</button>
+          <br />
+          <button class="btn btn-primary" type="submit" value="insulina" name="insulina">Registrar Dose de Insulina</button>
+          <br />
+          <button class="btn btn-primary" type="submit" value="glicose" name="glicose">Registar Índice Glicêmico</button>
+          <br />
+          <button class="btn btn-primary" type="submit" value="meal" name="meal">Registar Refeição</button>
+          <br />
+          <button class="btn btn-primary" type="submit" value="atividade_fisica" name="atividade_fisica">Registar Atividade Física</button>
+          <br />
+          <button class="btn btn-primary" type="submit" value="historico" name="historico">Histórico Completo</button>
+   
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
